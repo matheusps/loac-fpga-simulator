@@ -1,0 +1,8 @@
+.fpga-top {
+    display: flex;
+    justify-content: center;
+}
+
+.display {
+    width: 10%;
+}

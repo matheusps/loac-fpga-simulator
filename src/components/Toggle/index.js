@@ -1,13 +1,18 @@
 import React from 'react'
 import './toggle.css'
 
-const Toggle = props => (
-    <div class="toggle slide">
-        <input id="c" type="checkbox" />
-        <label for="c">
-            <div class="card slide"></div>    
-        </label>
-    </div>
+const Toggle = ({ isActive, onClick, id }) => (
+    <div className={`${isActive ? 'active' : ''} toggle slide`} onClick={() => onClick(id)}>
+        <input id="check" type="checkbox" />
+        <span className="label">
+            <div className="card slide"></div>    
+        </span>
+    </div>    
 )
+
+Toggle.defaultProps = {
+    isActive: false
+}
+
 
 export default Toggle

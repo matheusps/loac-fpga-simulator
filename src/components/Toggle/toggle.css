@@ -21,7 +21,7 @@ input {
     display: none;
 }
 
-label {
+.label {
     position: absolute;
     top: 0;
     left: 0;
@@ -40,14 +40,11 @@ label {
     pointer-events: none;
 }
 
-input:checked+label .card {
-    background: tomato;
-}
-
 .slide .card {
     transform: translate(0);
 }
 
-.slide input:checked+label .card {
+.active .card {
+    background: tomato;
     transform: translateY(3.75rem);
 }
