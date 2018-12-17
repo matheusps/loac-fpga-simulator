@@ -8,36 +8,25 @@ import Info from './components/Info'
 
 class App extends Component {
   
-  constructor(props){
-    super(props);
-
-    this.state = { 
-      SEG: 0,
-      SWI: Array(8).fill(false),
-      LED: Array(8).fill({ isActive: false, isBlink: true }),
-      hasOverflow: false
-    };
-    
+  state = { 
+    SEG: 0,
+    SWI: Array(8).fill(false),
+    LED: Array(8).fill({ isActive: false, isBlink: true }),
   }
+
+  binarySum = (array) => array.reduce((acc, elem ,index) => acc += elem ? 2**index : 0 )
 
   toggle = idx => {
     this.setState(state => {
       const SWI = state.SWI.map( (item, i) => i === idx ? !item : item )
-      
-      let ch = 0;
-      ch += SWI[0] ? 1 : 0;
-      ch += SWI[1] ? 2 : 0;
-      ch += SWI[2] ? 4 : 0;
-      ch += SWI[3] ? 8 : 0;
-
+      const SEG_VAL = this.binarySum(SWI)
       return {
         SWI,
-        SEG: ch >= 8 ? 8 : ch,
-        hasOverflow: ch >= 8
+        SEG: SEG_VAL >= 8 ? 8 : SEG_VAL,
       };
     });
   };
- 
+
   render() {
     
     const { SWI, SEG, LED} = this.state;
@@ -66,6 +55,7 @@ class App extends Component {
         </div>
 
         <LedStrip leds={LED} />
+        
         <div className="fpga-info">
           <Info />
         </div>
