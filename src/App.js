@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Display from './components/Display/index';
+import Display from './components/Display';
 import Toggle from './components/Toggle';
 import Panel from './components/Panel';
-import Led from './components/Led';
-import LedStrip from './components/LedStrip/index';
+import LedStrip from './components/LedStrip';
+import Info from './components/Info'
 
 class App extends Component {
   
@@ -75,9 +75,10 @@ class App extends Component {
         </div>
 
         <LedStrip leds={LED} />
-
-
-          
+        <div className="fpga-info">
+          <Info />
+        </div>
+        
       </div>
     );
   }

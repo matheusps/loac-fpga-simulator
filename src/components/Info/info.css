@@ -1,0 +1,25 @@
+.info{
+    background: var(--pallete-gray-mid);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 30rem;
+    border-radius: 1rem;
+    padding:5%;
+}
+
+.info-block {
+    background-color: var(--pallete-gray-light);
+    width: 100%;
+    height: 2.5rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+}
+
+.info-block--large {
+    background-color: var(--pallete-gray-light);
+    width: 100%;
+    height: 20rem;
+    border-radius: .5rem;
+    margin-top: 1.5rem;
+}

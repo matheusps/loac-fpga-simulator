@@ -4,6 +4,12 @@
     justify-content: center;
 }
 
+.fpga-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .display {
     width: 10%;
 }
