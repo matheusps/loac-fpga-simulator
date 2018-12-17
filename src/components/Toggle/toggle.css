@@ -33,7 +33,7 @@ input {
 
 .card {
     position: relative;
-    background: var(--pallete-green-light);
+    background: var(--pallete-gray-light);
     transition: .4s;
     height: 50%;
     width: 2.5rem;
@@ -47,7 +47,7 @@ input {
 }
 
 .active .card {
-    background: var(--pallete-gray-light);
+    background: var(--pallete-green-light);
     transform: translateY(3.75rem);
     border-top-left-radius: 0rem;
     border-top-right-radius: 0rem;

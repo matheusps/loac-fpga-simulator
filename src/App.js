@@ -26,6 +26,16 @@ class App extends Component {
     });
   };
 
+  sum = () => {
+    const { toggle } = this.state;
+    let res = 0;
+    res = toggle[0] ? res + 1 : res;
+    res = toggle[1] ? res + 2 : res ;
+    res = toggle[2] ? res + 4 : res ;
+    res = toggle[3] ? res + 8 : res ;
+    return res;
+  }
+ 
   render() {
     return (
       <div className="App">
@@ -38,7 +48,7 @@ class App extends Component {
           </Panel>
           <div className="display">
             <Display 
-              value={this.state.count} 
+              value={this.sum()} 
               color="#86C232" 
               digitCount={1}/>
           </div>  

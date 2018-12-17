@@ -46,8 +46,8 @@ const Digit = ({ xAxis, yAxis, color, value, onOpacity, offOpacity }) =>  {
       ])}
       style={{
         fillRule: "evenodd",
-        stroke: "#fff",
-        strokeWidth: 0.25,
+        stroke: "#61892F",
+        strokeWidth: 0.1,
         strokeOpacity: 1,
         strokeLinecap: "butt",
         strokeLinejoin: "miter"
