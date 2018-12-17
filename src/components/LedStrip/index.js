@@ -5,7 +5,7 @@ import Led from '../Led'
 const LedStrip = ({ leds }) => (
     <div className='led-strip'>
         {
-            leds.map( led => <Led isActive={led.isActive} isBlink={led.isBlink} /> )
+            leds.map( (led,index) => <Led key={index} isActive={led.isActive} isBlink={led.isBlink} /> )
         }
     </div>
 )
