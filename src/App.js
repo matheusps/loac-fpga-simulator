@@ -18,14 +18,12 @@ class App extends Component {
   }
 
   toggle = idx => {
-    console.log(idx)
-      this.setState(state => {
-        const toggle = state.toggle.map( (item, i) => i === idx ? !item : item )
-        console.log(toggle)
-        return {
-          toggle,
-        };
-      });
+    this.setState(state => {
+      const toggle = state.toggle.map( (item, i) => i === idx ? !item : item )
+      return {
+        toggle,
+      };
+    });
   };
 
   render() {
@@ -41,7 +39,7 @@ class App extends Component {
           <div className="display">
             <Display 
               value={this.state.count} 
-              color="blue" 
+              color="#86C232" 
               digitCount={1}/>
           </div>  
           <Panel>

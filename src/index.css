@@ -1,3 +1,11 @@
+:root {
+  --pallete-dark: #222629;
+  --pallete-green-dark: #61892F;
+  --pallete-green-light: #86C232;
+  --pallete-gray-dark: #474B4F;
+  --pallete-gray-light: #6B6E70;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +14,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--pallete-dark);
 }
 
 code {

@@ -1,13 +1,13 @@
 .toggle {
-    border: 1px solid #ccc;
     display: flex;
     position: relative;
     width: 2.5rem;
     height: 7.5rem;
-    background: white;
+    background: var(--pallete-gray-dark);
     align-self: center;
     user-select: none;
     margin: 2rem;
+    border-radius: .7rem;
 }
 
 .toggle:after,
@@ -33,7 +33,7 @@ input {
 
 .card {
     position: relative;
-    background: limegreen;
+    background: var(--pallete-green-light);
     transition: .4s;
     height: 50%;
     width: 2.5rem;
@@ -42,9 +42,15 @@ input {
 
 .slide .card {
     transform: translate(0);
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
 }
 
 .active .card {
-    background: tomato;
+    background: var(--pallete-gray-light);
     transform: translateY(3.75rem);
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: .7rem;
+    border-bottom-right-radius: .7rem;
 }
