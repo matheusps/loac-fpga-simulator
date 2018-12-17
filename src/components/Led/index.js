@@ -4,7 +4,7 @@ import './led.css'
 const Led = ({ isActive,  isBlink }) => (
     <div 
         style={{ backgroundColor: `${isActive ? 'yellow' : '' }` }}
-        className={`${ isActive && isBlink ? 'blink' : 'led' } `}
+        className={`led ${ isActive && isBlink ? 'blink' : 'off' } `}
     />
 )
 

@@ -4,6 +4,7 @@ import Display from './components/Display/index';
 import Toggle from './components/Toggle';
 import Panel from './components/Panel';
 import Led from './components/Led';
+import LedStrip from './components/LedStrip/index';
 
 class App extends Component {
   
@@ -13,6 +14,16 @@ class App extends Component {
     this.state = { 
       SEG: 0,
       SWI: [false, false, false, false, false, false, false, false],
+      LED: [
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: false, isBlink: true },
+        { isActive: true, isBlink: true },
+      ],
       hasOverflow: false
     };
     
@@ -38,7 +49,7 @@ class App extends Component {
  
   render() {
     
-    const { SWI, SEG } = this.state;
+    const { SWI, SEG, LED} = this.state;
 
     return (
       <div className="App">
@@ -62,9 +73,8 @@ class App extends Component {
             <Toggle isActive={SWI[0]} id={0} onClick={this.toggle} />
           </Panel>
         </div>
-        
-        <Led isActive={this.state.hasOverflow}/>
-        <Led isActive={this.state.hasOverflow} isBlink/>
+
+        <LedStrip leds={LED} />
 
 
           

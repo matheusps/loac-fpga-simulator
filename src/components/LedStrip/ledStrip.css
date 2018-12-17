@@ -1,9 +1,6 @@
-.fpga-top {
+.led-strip {
     margin-top: 2rem;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-}
-
-.display {
-    width: 10%;
 }

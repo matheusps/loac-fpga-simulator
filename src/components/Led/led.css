@@ -2,14 +2,14 @@
     width: 1.5rem;
     height: 3rem;
     border-radius: .3rem;
+    margin: 1rem;
+}
+
+.off {
     background-color: var(--pallete-gray-dark);
 }
 
 .blink {
-    width: 1.5rem;
-    height: 3rem;
-    border-radius: .3rem;
-    background-color: var(--pallete-gray-dark);
     animation-name: blink;
     animation-duration: .5s;
     animation-iteration-count: infinite;
