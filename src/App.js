@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import Display from './components/Display';
-import Toggle from './components/Toggle';
-import Panel from './components/Panel';
-import LedStrip from './components/LedStrip';
+import React, { Component } from 'react'
+import './App.css'
+import Display from './components/Display'
+import Toggle from './components/Toggle'
+import Panel from './components/Panel'
+import LedStrip from './components/LedStrip'
 import Info from './components/Info'
 
 class App extends Component {
@@ -20,16 +20,22 @@ class App extends Component {
     this.setState(state => {
       const SWI = state.SWI.map( (item, i) => i === idx ? !item : item )
       const SEG_VAL = this.binarySum(SWI)
+      const hasOverflow = SEG_VAL >= 8
+      
+      let LED = [...state.LED]
+      LED[0].isActive = hasOverflow
+        
       return {
         SWI,
-        SEG: SEG_VAL >= 8 ? 8 : SEG_VAL,
+        LED,
+        SEG: hasOverflow ? 8 : SEG_VAL,
       };
     });
   };
 
   render() {
     
-    const { SWI, SEG, LED} = this.state;
+    const { SWI, SEG, LED} = this.state
 
     return (
       <div className="App">
@@ -55,15 +61,15 @@ class App extends Component {
         </div>
 
         <LedStrip leds={LED} />
-        
+
         <div className="fpga-info">
           <Info />
         </div>
         
       </div>
-    );
+    )
   }
 
 }
 
-export default App;
+export default App
