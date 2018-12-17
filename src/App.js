@@ -13,17 +13,8 @@ class App extends Component {
 
     this.state = { 
       SEG: 0,
-      SWI: [false, false, false, false, false, false, false, false],
-      LED: [
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: false, isBlink: true },
-        { isActive: true, isBlink: true },
-      ],
+      SWI: Array(8).fill(false),
+      LED: Array(8).fill({ isActive: false, isBlink: true }),
       hasOverflow: false
     };
     
