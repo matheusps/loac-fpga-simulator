@@ -3,7 +3,7 @@ import './App.css';
 import Display from './components/Display/index';
 import Toggle from './components/Toggle';
 import Panel from './components/Panel';
-import { throws } from 'assert';
+import Led from './components/Led';
 
 class App extends Component {
   
@@ -11,55 +11,62 @@ class App extends Component {
     super(props);
 
     this.state = { 
-      count: 0,
-      toggle: [false, false, false, false, false, false, false, false]
+      SEG: 0,
+      SWI: [false, false, false, false, false, false, false, false],
+      hasOverflow: false
     };
     
   }
 
   toggle = idx => {
     this.setState(state => {
-      const toggle = state.toggle.map( (item, i) => i === idx ? !item : item )
+      const SWI = state.SWI.map( (item, i) => i === idx ? !item : item )
+      
+      let ch = 0;
+      ch += SWI[0] ? 1 : 0;
+      ch += SWI[1] ? 2 : 0;
+      ch += SWI[2] ? 4 : 0;
+      ch += SWI[3] ? 8 : 0;
+
       return {
-        toggle,
+        SWI,
+        SEG: ch >= 8 ? 8 : ch,
+        hasOverflow: ch >= 8
       };
     });
   };
-
-  sum = () => {
-    const { toggle } = this.state;
-    let res = 0;
-    res = toggle[0] ? res + 1 : res;
-    res = toggle[1] ? res + 2 : res ;
-    res = toggle[2] ? res + 4 : res ;
-    res = toggle[3] ? res + 8 : res ;
-    return res;
-  }
  
   render() {
+    
+    const { SWI, SEG } = this.state;
+
     return (
       <div className="App">
         <div className="fpga-top">
           <Panel>
-            <Toggle isActive={this.state.toggle[7]} id={7} onClick={this.toggle} />
-            <Toggle isActive={this.state.toggle[6]} id={6} onClick={this.toggle} />
-            <Toggle isActive={this.state.toggle[5]} id={5} onClick={this.toggle} />
-            <Toggle isActive={this.state.toggle[4]} id={4} onClick={this.toggle} />
+            <Toggle isActive={SWI[7]} id={7} onClick={this.toggle} />
+            <Toggle isActive={SWI[6]} id={6} onClick={this.toggle} />
+            <Toggle isActive={SWI[5]} id={5} onClick={this.toggle} />
+            <Toggle isActive={SWI[4]} id={4} onClick={this.toggle} />
           </Panel>
           <div className="display">
             <Display 
-              value={this.sum()} 
+              value={SEG} 
               color="#86C232" 
               digitCount={1}/>
           </div>  
           <Panel>
-            <Toggle isActive={this.state.toggle[3]} id={3} onClick={this.toggle} />
-            <Toggle isActive={this.state.toggle[2]} id={2} onClick={this.toggle} />
-            <Toggle isActive={this.state.toggle[1]} id={1} onClick={this.toggle}/>
-            <Toggle isActive={this.state.toggle[0]} id={0} onClick={this.toggle} />
+            <Toggle isActive={SWI[3]} id={3} onClick={this.toggle} />
+            <Toggle isActive={SWI[2]} id={2} onClick={this.toggle} />
+            <Toggle isActive={SWI[1]} id={1} onClick={this.toggle}/>
+            <Toggle isActive={SWI[0]} id={0} onClick={this.toggle} />
           </Panel>
         </div>
         
+        <Led isActive={this.state.hasOverflow}/>
+        <Led isActive={this.state.hasOverflow} isBlink/>
+
+
           
       </div>
     );

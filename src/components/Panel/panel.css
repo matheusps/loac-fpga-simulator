@@ -1,5 +1,7 @@
 .panel {
     display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 40%;
+    background-color: var(--pallete-gray-mid);
+    border-radius: 1rem;
 }

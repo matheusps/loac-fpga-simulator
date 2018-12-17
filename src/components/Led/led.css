@@ -1,0 +1,22 @@
+.led {
+    width: 1.5rem;
+    height: 3rem;
+    border-radius: .3rem;
+    background-color: var(--pallete-gray-dark);
+}
+
+.blink {
+    width: 1.5rem;
+    height: 3rem;
+    border-radius: .3rem;
+    background-color: var(--pallete-gray-dark);
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    from {background-color: yellow; }
+    to {background-color: var(--pallete-gray-dark)}
+}
