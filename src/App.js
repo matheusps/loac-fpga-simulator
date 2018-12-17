@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Display from './components/Display/index';
+import Toggle from './components/Toggle';
 
 class App extends Component {
   
@@ -21,6 +22,8 @@ class App extends Component {
           value={this.state.count} 
           color="blue" 
           digitCount={1}/>
+
+          <Toggle />
       </div>
     );
   }

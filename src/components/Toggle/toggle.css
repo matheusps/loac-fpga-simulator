@@ -1,0 +1,53 @@
+.toggle {
+    border: 1px solid #ccc;
+    display: flex;
+    position: relative;
+    width: 2.5rem;
+    height: 7.5rem;
+    background: white;
+    align-self: center;
+    user-select: none;
+    margin: 2rem;
+}
+
+.toggle:after,
+.toggle:before {
+    flex: 1;
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+input {
+    display: none;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    perspective: 1000;
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    background: limegreen;
+    transition: .4s;
+    height: 50%;
+    width: 2.5rem;
+    pointer-events: none;
+}
+
+input:checked+label .card {
+    background: tomato;
+}
+
+.slide .card {
+    transform: translate(0);
+}
+
+.slide input:checked+label .card {
+    transform: translateY(3.75rem);
+}
